@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Nextschool</title>
+  <link rel="stylesheet" href="./assets/bootstrap-4.1.3/css/bootstrap.css">
+  <link rel="stylesheet" href="./assets/css/app.css">
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <div class="container" v-if="userId !=''">
+      <!-- <div class="container" > -->
+      <br>
+      <br>
+      <img src="./assets/logo/logo-ns.png" class="rounded mx-auto d-block img-fluid" alt="..." width="400px">
+      <br>
+      <h3 class="text-center">เข้าสู่ระบบ</h3>
+      <div class="form-group">
+        <label for="exampleInputEmail1">เบอร์โทร</label>
+        <input type="tel" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="เบอร์โทร..."
+          maxlength="10" v-model="tel">
+      </div>
+      <div class="text-right">
+      </div>
+      <div class="text-center">
+        <span v-if="send">
+          <button class="btn btn-outline-warning btn-block btn-lg" disabled> กำลังส่งข้อมูล...</button>
+        </span>
+        <button v-else class="btn btn-success btn-block btn-lg" :class="checkBtn" :disabled="tel.length < 10" @click="sendNumber">ลงทะเบียน</button>
+      </div>
+    </div>
+    <div v-else>
+      Authentication False
+      <a href="#" @click="reload">reload</a>
+    </div>
+  </div>
+
+  <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+  <script src="./assets/js/axios.min.js"></script>
+  <script src="./assets/js/vue.js"></script>
+  <script src="./assets/js/app.js"></script>
+</body>
+
+</html>

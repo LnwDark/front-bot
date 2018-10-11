@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>กำหนดการแจ้งเตือน</title>
+    <link rel="stylesheet" href="./assets/bootstrap-4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/app.css">
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <div class="container" v-if="userId !=''">
+            <div v-if="!LoadPage">Loading...</div>
+            <div v-else>
+                <br>
+                <h5>ตั้งค่าการรับแจ้งเตือนข่าวสาร</h5>
+                <hr>
+                <ul class="list-group mb-3" v-for="model in dataNotyfy">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">{{model.content}}</h6>
+                        </div>
+                        <span class="text-muted">
+                            <div class="input-group-prepend">
+                                <label class="switch">
+                                    <input type="checkbox" v-model="model.status" @click="turnON(model)">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </span>
+                    </li>
+                </ul>
+              
+            </div>
+        </div>
+        <div v-else>
+            เกิดข้อผิดพลาด ในการเชื่อมต่อ
+            <a href="#" @click="reload">แตะเพื่อลองอีกครั้ง</a>
+        </div>
+        <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+        <script src="./assets/js/axios.min.js"></script>
+        <script src="./assets/js/vue.js"></script>
+        <script src="./assets/js/app.js"></script>
+</body>
+
+</html>
