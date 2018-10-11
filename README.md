@@ -1,3 +1,11 @@
 # front-bot
-# add url rest-api t /asset/js/app.js
-## URL_SERVER:""
+
+### add url rest-api /asset/js/app.js
+
+```javascript
+  data() {
+    return {   
+        ------- 
+        URL_SERVER:""   <<---
+}
+```
